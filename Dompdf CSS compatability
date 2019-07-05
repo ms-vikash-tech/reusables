@@ -1,0 +1,183 @@
+# Selectors
+
+dompdf supports the following CSS selector syntaxes. dompdf also supports elements with multiple class attributes (e.g. ` <p class="red bold">foo</p>` matches `p.red` and `p.bold`).
+
+Note that the CSS selectors are case sensitive in dompdf (e.g. `.foo` will not match `<div class="FOO">bar</div>`)
+
+Selector | Supported | Version Added | Notes
+-------- | --------- | ------------- | -----
+| * | yes | |
+E | yes | |
+E F | yes | |
+E > F | yes | |
+E.class | yes | |
+E#myid | yes | |
+E:first-child | partial | |
+E:last-child | partial | 0.6.0 | 
+E:first-of-type | yes | 0.6.0 | 
+E:last-of-type | yes | 0.6.0 | 
+E:nth-last-of-type | yes | 0.6.0 | 
+E:nth-last-child | yes | 0.6.0 | 
+E:nth-of-type | yes | 0.6.0 | 
+E:nth-child | yes | 0.6.0 | 
+E:link | yes | |
+E:visited | N/A | |
+E:active | N/A | |
+E:hover | N/A | |
+E:focus | N/A | |
+E:lang(c) | no | |
+E + F | yes | |
+E[foo] | yes | |
+E[foo="warning"] | yes | | 
+E[foo~="warning"] | yes | | 
+E[foo$="warning"] | yes | 0.6.0 | 
+E[foo^="warning"] | yes | 0.6.0 | 
+E[foo*="warning"] | yes | 0.6.0 | 
+E[lang&#124;="en"] | yes | | 
+
+
+## Page selectors
+
+Page Selectors | Supported | Version Added | Notes
+-------------- | --------- | ------------- | -----
+@page | yes | | 
+@page :left | yes | 0.6.0 | only margins are applied
+@page :right | yes | 0.6.0 | only margins are applied
+@page :odd | yes | 0.6.0 | only margins are applied
+@page :even | yes | 0.6.0 | only margins are applied
+@page :first | yes | 0.6.0 | only margins are applied
+
+
+## Pseudo elements
+
+Property | Supported | Version Added | Notes
+-------- | --------- | ------------- | -----
+E:before | yes | | Only on block and inline elements
+E:after | yes | | Only on block and inline elements
+
+
+## Properties
+
+dompdf supports the majority of CSS 2.1 properties and some CSS 3 properties. Some notable properties are not supported however. See the following table for details on which properties are supported.
+
+Property | Supported | Version Added | Notes
+-------- | --------- | ------------- | -----
+background-attachment | N/A | | 
+background-color | yes | | 
+background-image | yes | | 
+background-position | yes | | 
+background-repeat | yes | | 
+background | yes | | 
+border-collapse | yes | | 
+border-color | yes | | 
+border-radius | partial | 0.6.0 | only supported on block elements
+border-spacing | yes | | 
+border-style | yes | | 
+border-top | yes | | 
+border-top-color | yes | | 
+border-top-style | yes | | 
+border-top-width | yes | | 
+border-width | yes | | 
+border | yes | | 
+bottom | no | | 
+caption-side | no | | Caption elements are moved before the table, as block elements.  	
+clear | partial | 0.6.0 | In 0.6.x `DOMPDF_ENABLE_CSS_FLOAT` must be true
+clip | no | | 
+color | yes | | 
+content | yes | | 
+counter-increment | yes | | 
+counter-reset | yes | | 
+cursor | N/A | | 
+direction | no | | 
+display | partial | | display type `run-in` is not supported
+empty-cells | yes | 0.6.0 | 
+float | partial | 0.6.0 | In 0.6.x `DOMPDF_ENABLE_CSS_FLOAT` must be true
+font-family | yes | | 
+font-size | yes | | 
+font-style | yes | | 
+font-variant | no | | 
+font-weight | yes | | 
+font | yes | | 
+height | yes | | 
+left | yes | | 
+letter-spacing | yes | | 
+line-height | yes | | 
+list-style-image | yes | | 
+list-style-position | yes | | 
+list-style-type | yes | | 
+list-style | yes | | 
+margin-right | yes | | 
+margin-top | yes | | 
+margin | yes | | 
+max-height | yes | | 
+max-width | yes | | 
+min-height | no | | 
+min-width | yes	 | | 
+opacity | partial | | 
+orphans | yes | | 
+outline-color | yes | | 
+outline-style | yes | | 
+outline-width | yes | | 
+outline | yes | | 
+overflow | partial | | 
+padding-top | yes | | 
+padding | yes | | 
+page-break-after | yes | | 
+page-break-before | yes | | 
+page-break-inside | yes | | 
+position | yes | | 
+quotes | yes | | 
+right | no | | 
+size | yes | | for @page
+src | partial | | for @font-face
+table-layout | no | | 
+text-align | yes | | 
+text-decoration | yes | | 
+text-indent | yes | | 
+text-transform | yes | | 
+transform | yes | | 
+top | yes | | 
+unicode-bidi | no | | 
+unicode-range | no | | for @font-face
+vertical-align | yes | | 
+visibility | yes | | 
+white-space | yes | | 
+widows | no | | 
+width | yes | | 
+word-spacing | yes | | 
+word-wrap | yes | | 
+z-index | yes | | 
+
+
+## CSS Units
+
+Unit | Supported | Version Added | Notes
+---- | --------- | ------------- | -----
+px | yes | | 
+pt | yes | | 
+% | yes | | 
+rem | yes | 0.6.0 | 
+em | yes | | 
+cm | yes | | 
+mm | yes | | 
+ex | yes | | Equals to em/2
+in | yes | | 
+pc | yes | | 
+rad | yes | 0.6.0 | for 2D transforms
+deg | yes | 0.6.0 | for 2D transforms
+
+
+## Colors
+
+Color | Supported | Version Added | Notes
+----- | --------- | ------------- | -----
+transparent | yes | | 
+currentColor | no | | 
+Basic color keywords | yes | | 
+Extended color keywords | yes | | 
+Numerical color values | yes | | 
+CMYK color values | yes | 0.8.0 | 
+RGBA color values | yes | 0.8.0 | 
+HSL color values | no | | 
+HSLA color values | no | | 
+CSS2 system colors | no | | 
